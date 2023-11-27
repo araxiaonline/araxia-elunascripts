@@ -1,0 +1,2 @@
+local PLAYER_EVENT_ON_LOOT_ITEM = 32
+
