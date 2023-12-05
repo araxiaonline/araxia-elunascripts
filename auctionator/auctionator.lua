@@ -34,7 +34,7 @@ function Auctionator.onCommand(event, player, msg, Type, lang)
     local command = split(msg)
     Debug(command[1])
 
-    if (command[1] == "#auctionator") then
+    if (command[1] == "ahn") then
         if (#command == 1) then
             Auctionator.Status()
             return
@@ -42,7 +42,12 @@ function Auctionator.onCommand(event, player, msg, Type, lang)
 
         if (command[2] == "additem") then
             if (#command ~= 5) then
-                Info('Usage: #auctionator additem <item> <buyoutprice> <quantity>')
+                if (player) then
+                    player.Say("Usage: .ahn additem <item> <buyoutprice> <quantity>", 0);
+                else
+                    Info('Usage: .ahn additem <item> <buyoutprice> <quantity>')
+                end
+                return
             end
 
             Auctionator.AddItem(command[3], command[4], command[5])
